@@ -6,3 +6,10 @@
 
 # ignore Python build artifacts
 *.egg-info/
+
+__pycache__/
+
+*.pyc
+*.pyo
+*.pyd
+*.pyc.pyo

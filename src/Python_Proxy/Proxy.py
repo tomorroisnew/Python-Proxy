@@ -1,5 +1,9 @@
 import socket
 import threading
+from loguru import logger
+
+TOCLIENT = 0
+TOSERVER = 1
 
 def logPackets(data, toServer):
     if(toServer):
@@ -9,14 +13,23 @@ def logPackets(data, toServer):
     return data
 
 class Proxy(threading.Thread):
-    def __init__(self, localIp, localPort, remoteIp, remotePort, useLocalIp, callback=logPackets) -> None:
+    def __init__(self, localIp, localPort, remoteIp, remotePort, bindTo = None, callback=logPackets) -> None:
         threading.Thread.__init__(self)
         self.localIp = localIp
         self.localPort = localPort
         self.remoteIp = remoteIp
         self.remotePort = remotePort
-        self.useLocalIp = useLocalIp
+        if bindTo == None: # Use default ip
+            self.bindTo = self.getLocalIp()
+            logger.debug(self.bindTo)
+        else:
+            self.bindTo = bindTo
         self.callback = callback
+
+        self.init()
+
+    def init(self):
+        raise NotImplementedError
 
     def run(self):
         raise NotImplementedError
