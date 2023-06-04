@@ -1,0 +1,8 @@
+# ignore virtual environment directory
+.venv/
+
+# ignore test directory
+/test/
+
+# ignore Python build artifacts
+*.egg-info/
