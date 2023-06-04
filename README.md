@@ -29,7 +29,7 @@ proxy.run()
 
 SSL:
 For ssl, you have to generate your own certificate files first. This certificate file will be used by the proxy server, and you also have to install the generated certificate as trusted root ca in your computer. For the generation of certificate files, i created a script named `GenerateCertificates.py`. Create the Certificate files `python -m Python_Proxy.GenerateCertificates -H host.com -I 127.0.0.1 -o certs`
-```
+```py
 from Python_Proxy import TcpSslProxy
 
 proxy = TcpSslProxy('127.0.0.1', 443, '<REMOTE_IP>', 443, 'host.com', '.\certs\server.crt', '.\certs\server.key')
