@@ -1,0 +1,18 @@
+[build-system]
+requires = ["setuptools>=61.0", "loguru"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "Python_Proxy"
+version = "0.0.1"
+authors = [
+  { name="tomorrowisnew", email="roldanbrandon62@gmail.com" },
+]
+description = "A python proxy"
+readme = "README.md"
+requires-python = ">=3.7"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
