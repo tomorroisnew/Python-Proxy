@@ -13,12 +13,13 @@ def logPackets(data, toServer):
     return data
 
 class Proxy(threading.Thread):
-    def __init__(self, localIp, localPort, remoteIp, remotePort, bindTo = None, callback=logPackets) -> None:
+    def __init__(self, localIp, localPort, remoteIp=None, remotePort=None, remoteHost=None, bindTo=None, callback=logPackets) -> None:
         threading.Thread.__init__(self)
         self.localIp = localIp
         self.localPort = localPort
         self.remoteIp = remoteIp
         self.remotePort = remotePort
+        self.remoteHost = remoteHost
         if bindTo == None: # Use default ip
             self.bindTo = self.getLocalIp()
             logger.debug(self.bindTo)
